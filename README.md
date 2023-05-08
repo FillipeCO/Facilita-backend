@@ -1,2 +1,0 @@
-# organizy
-Projeto Integrador
