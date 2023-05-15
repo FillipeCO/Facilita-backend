@@ -134,6 +134,45 @@ class FinancialReleaseController {
         }
     }
 
+    async getDespesasByMonth(request: Request, response: Response) {
+        const { id } = request.params;
+        const { month, year } = request.body;
+
+        try {
+            const financialReleases = await FinancialRelease.find({ userId: id, type: "despesa", date: { $gte: new Date(year, month - 1, 1), $lte: new Date(year, month, 0) } });
+
+            return response.status(200).json(financialReleases);
+        } catch (error) {
+            return response.status(400).json(error);
+        }
+    }
+
+    async getAllTimeBalance(request: Request, response: Response) {
+        const { id } = request.params;
+
+        try {
+            const financialReleases = await FinancialRelease.find({ userId: id });
+
+            let totalReceita = 0;
+            let totalDespesa = 0;
+
+            financialReleases.forEach((financialRelease) => {
+                if (financialRelease.type === "receita") {
+                    totalReceita += financialRelease.value;
+                } else {
+                    totalDespesa += financialRelease.value;
+                }
+            });
+
+            const balance = totalReceita - totalDespesa;
+
+            return response.status(200).json({ totalReceita, totalDespesa, balance });
+        } catch (error) {
+            return response.status(400).json(error);
+        }
+    }
+
+
     async getAllFinancialReleasesOfTypeDespesaByUserIdAndCategory(request: Request, response: Response) {
         const { id } = request.params;
         const { category } = request.body;
