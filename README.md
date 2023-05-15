@@ -11,54 +11,65 @@ This project was developed with the following technologies:
 - [MongoDB](https://www.mongodb.com/)
 - [Mongoose](https://mongoosejs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Cors]
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) installed on your computer. From your command line:
+Antes de tudo, é recomendado baixar o gitbash para o pc: https://gitforwindows.org/ 
+	Clicar em download e instalar tudo no padrão mesmo
+ 
 
-```bash
-# Clone this repository
-$ git clone
+Instalar o docker desktop docker desktop: https://www.docker.com/products/docker-desktop/ 
+ 
+	Se aparecer esse erro ao tentar inicializar o docker desktop (docker desktop requires a newer wsl kernel version.), baixar e instalar o seguinte: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
-# Go into the repository
-$ cd
+Criar uma pasta qualquer e com o gitbash ou seu terminal, acessá-la, você também pode clicar com o botão direito dentro da pasta e clicar em "Abrir no Terminal"
+ 
 
-# Install dependencies
-$ yarn install
+Com o terminal aberto, dentro da pasta que você criou, rodar os comandos:
 
-# Install Docker Desktop
-https://www.docker.com/products/docker-desktop/
+git clone https://github.com/FillipeCO/organizy.git
+- Isso vai clonar o repositório remoto para a sua máquina.
+ 
 
-$ docker run --name mongo_organizy -d -p 27017:27017 mongo:latest
+cd organizy
+- Esse comando vai mover você para o repositório recém clonado.
+ 
 
-$ docker start mongo_organizy
+npm install -g npm
+- Isso vai instalar o node e o npm na sua máquina
+ 
 
-# Run the app
-$ yarn dev:server
+npm install --global yarn
+- Isso vai instalar o yarn na sua máquina
+ 
 
-# Download the insomnia request collection: 
-https://easyupload.io/pksnyk
-```
+yarn install
+- Isso vai instalar todas as dependências necessárias para o projeto
+ 
 
-## Routes
+docker run --name mongo_organizy -d -p 27017:27017 mongo:latest
+- Cria o container mongo_organizy no seu docker
+ 
 
-### User
+docker start mongo_organizy
+- Coloca o seu container para rodar
+ 
 
-- **POST** /user
-- **GET** /users
-- **GET** /user/:id
-- **DELETE** /user/:id
-- **PUT** /user/:id
-- **POST** /user/login
+yarn dev
+- Faz rodar o servidor backend e o projeto vai estar pronto pra teste
+ 
 
-### Financial Release
+------------------------------------------------------------------------------------------------------------------------------------
 
-- **POST** /financial-release
-- **GET** /financial-releases/:id
-- **GET** /financial-release/user/:id
-- **GET** /financial-release/despesa/:id
-- **GET** /financial-release/receita/:id
-- **DELETE** /financial-release/:id
-- **PUT** /financial-release/:id
-- **GET** /financial-release/monthly-balance/:id
-- **GET** /financial-release/despesa/category/:id
+
+Integrantes:
+
+BRENDA GIOVANNA MACHADO RIOS
+
+FILLIPE DIAS CORREIA
+
+RENATA RIBEIRO CAVALCANTE
+
+WILKER PEREIRA SILVEIRA
+
