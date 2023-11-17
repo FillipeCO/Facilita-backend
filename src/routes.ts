@@ -1,6 +1,6 @@
 import { Router } from "express";
 import UserController from "./controller/UserController";
-import FinancialReleaseController from "./controller/FinancialReleaseController";
+import EventController from "./controller/EventController";
 
 const routes = Router();
 
@@ -11,15 +11,14 @@ routes.delete("/user/:id", UserController.deleteUser);
 routes.put("/user/:id", UserController.updateUser);
 routes.post("/user/login", UserController.loginUser);
 
-routes.post("/financial-release", FinancialReleaseController.create);
-routes.get("/financial-releases/:id", FinancialReleaseController.getFinancialReleaseById);
-routes.get("/financial-releases/balance/:id", FinancialReleaseController.getAllTimeBalance);
-routes.get("/financial-release/user/:id", FinancialReleaseController.getAllFinancialReleasesByUserId);
-routes.get("/financial-release/despesa/:id", FinancialReleaseController.getAllFinancialReleasesOfTypeDespesaByUserId);
-routes.get("/financial-release/receita/:id", FinancialReleaseController.getAllFinancialReleasesOfTypeReceitaByUserId);
-routes.delete("/financial-release/:id", FinancialReleaseController.deleteFinancialRelease);
-routes.put("/financial-release/:id", FinancialReleaseController.updateFinancialRelease);
-routes.post("/financial-release/monthly-balance/:id", FinancialReleaseController.getMonthlyBalance);
-routes.get("/financial-release/despesa/category/:id", FinancialReleaseController.getAllFinancialReleasesOfTypeDespesaByUserIdAndCategory);
+routes.post("/event", EventController.create);
+routes.get("/event/:id", EventController.getEventById);
+routes.get("/event/user/:id", EventController.getAllEventsByUserId);
+routes.get("/events", EventController.getAllEvents);
+routes.get("/event/organizer/:id", EventController.getEventByOrganizerId);
+routes.delete("/event/:id", EventController.deleteEvent);
+routes.put("/event/:id", EventController.updateEvent);
+routes.put("/event/:eventId/user/:userId", EventController.addUserToEvent);
+routes.put("/event/:eventId/user/:userId/remove", EventController.removeUserFromEvent);
 
 export default routes;

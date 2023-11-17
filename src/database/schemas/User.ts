@@ -5,31 +5,27 @@ const User = new mongoose.Schema({
         type: String,
         required: true,
     },
+    email: {
+        type: String,
+        required: true,
+    },
     cellphone: {
         type: Number,
         required: true,
     },
-    birthdate: {
+    cpf_cnpj: {
         type: String,
-        required: true,
-    },
-    cpf: {
-        type: Number,
         unique: true,
         required: true,
     },
-    cep: {
-        type: Number,
-        required: true,
-    },
-    state: {
+    password: {
         type: String,
         required: true,
     },
-    city: {
-        type: String,
+    isOrganizer: {
+        type: Boolean,
         required: true,
-    }
+    },
 });
 
 export default mongoose.model("User", User);
