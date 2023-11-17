@@ -1,26 +1,3 @@
-# Superlogica Backend
-
-REST API para cadastro e controle de visitas e visitantes em condomínios.
-
-A API tem as seguintes funções:
-- Cadastrar, buscar, deletar e editar visitantes. Com validação de dados e testes.
-- Cadastrar, buscar, deletar e editar visitas. Com validação de dados e testes.
-
-## Tecnologias
-
-This project was developed with the following technologies:
-
-- [Node.js](https://nodejs.org/en/)
-- [Express](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
-- [Mongoose](https://mongoosejs.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Cors]
-- [Jest]
-- [Docker]
-
-## Documentação do Postman:
-- Documentação: https://web.postman.co/documentation/23584355-6500f8aa-5a92-4541-963d-bd7eb3ddda0f/publish?workspaceId=a45826f0-cdad-4c62-8438-ff9f69b1017f
 
 ## Como usar
 
@@ -57,11 +34,11 @@ npm install
 
 ### Docker:
 
-docker run --name superlogica_backend -d -p 27017:27017 mongo:latest
+docker run --name facilita_backend -d -p 27017:27017 mongo:latest
 - Cria o container superlogica_backend no seu docker
  
 
-docker start superlogica_backend
+docker start facilita_backend
 - Coloca o seu container para rodar
 
 ### Rodando o projeto:
@@ -69,7 +46,5 @@ docker start superlogica_backend
 npm run dev
 - Faz rodar o servidor backend e o projeto vai estar pronto pra teste via postman
 
-### Testes: usar o comando `npm test` para rodar os testes no diretório raiz.
- 
 
 ------------------------------------------------------------------------------------------------------------------------------------
